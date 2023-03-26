@@ -1,0 +1,112 @@
+@use "../var";
+@import "../mixins";
+
+.home-page,
+.request-form {
+	#search-container {
+		.render-charities {
+			margin: 0.5rem 0;
+			border-radius: 0.5rem;
+			overflow: hidden;
+			.charity-card-wrapper {
+				width: 100%;
+			}
+			&.no-charities {
+				@include flex-container(column, center, center, nowrap, 0, 1rem);
+			}
+		}
+	}
+	#results-container {
+		background-color: rgb(44, 44, 44);
+		border-radius: 1em;
+		flex: 1;
+		width: 100%;
+		position: relative;
+
+		$border: 3px;
+		background-clip: padding-box;
+		border: solid $border transparent;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			margin: -$border;
+			border-radius: inherit;
+			background: linear-gradient(
+				to bottom right,
+				var.$accent1,
+				var.$primary,
+				var.$accent2
+			);
+		}
+	}
+}
+@media screen and (max-width: calc(var.$screen_M - 1px)) {
+	.home-page {
+		> main {
+			> .container {
+				@include flex-container(column, center, flex-start, nowrap, 1, 1rem);
+				#search-container {
+					width: 100%;
+					position: relative;
+					z-index: 2;
+					.render-charities {
+						background-color: var.$background;
+						max-height: 25rem;
+						// position: absolute;
+						width: 100%;
+						&.open {
+							max-height: 100%;
+						}
+						&.close {
+							display: none;
+						}
+						&.no-charities {
+							margin-top: 1rem;
+							padding: 2rem 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// .request-form {
+// 	> main {
+// 		overflow: hidden;
+// 		> .container,
+// 		.shapes {
+// 			margin: 0 auto;
+// 			overflow: hidden;
+// 			max-width: 90ch;
+// 			left: 0;
+// 			right: 0;
+// 		}
+// 	}
+// }
+@media screen and (min-width: var.$screen_M) {
+	.home-page,
+	.request-form {
+		> main {
+			> .container {
+				@include flex-container(row, center, flex-start, nowrap, 1, 1rem);
+				#search-container {
+					width: 50%;
+					.render-charities {
+						&.no-charities {
+							margin-top: 2rem;
+						}
+					}
+				}
+				#results-container {
+					width: 50%;
+				}
+			}
+		}
+	}
+}

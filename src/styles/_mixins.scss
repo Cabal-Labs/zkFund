@@ -1,0 +1,74 @@
+@use "./var";
+@mixin flex-container(
+	$direction,
+	$justify,
+	$align,
+	$wrap,
+	$flex: unset,
+	$gap: 0rem
+) {
+	display: flex;
+	flex-direction: $direction;
+	align-items: $align;
+	justify-content: $justify;
+	flex-wrap: $wrap;
+	flex: $flex;
+	gap: $gap;
+}
+
+@mixin text($family, $size, $weight) {
+	font-family: $family !important;
+	font-size: $size !important;
+	font-weight: $weight !important;
+}
+@mixin even-spacing($margin, $padding) {
+	margin: $margin;
+	padding: $padding;
+}
+@mixin standard-shadow() {
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+}
+@mixin standard-shadow-top() {
+	box-shadow: 0px -1px 3px -1px rgba(0, 0, 0, 0.25);
+}
+
+@mixin shadow-1() {
+	box-shadow: 0px 10px 30px -10px rgba(0, 0, 0, 0.25);
+}
+@mixin shadow-2() {
+	box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.25);
+}
+@mixin shadow-3() {
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+}
+@mixin inset-shadow() {
+	box-shadow: 0px -25px 80px -40px rgba(0, 0, 0, 0.5) inset;
+	-webkit-box-shadow: 0px -25px 80px -40px rgba(0, 0, 0, 0.5) inset;
+	-moz-box-shadow: 0px -25px 80px -40px rgba(0, 0, 0, 0.5) inset;
+}
+@mixin card() {
+	border-radius: 0.5rem;
+	padding: 1rem;
+	margin: 0.25rem 0;
+	@include shadow-3();
+}
+@mixin line-card() {
+	padding: 1rem;
+	margin: 0.25rem 0;
+	background-color: var.$foreground;
+	border-bottom: 1px solid var.$border;
+}
+
+@mixin border() {
+	border: 1px solid var.$border;
+}
+@mixin outlineCard() {
+	@include card();
+	@include border();
+	box-shadow: none;
+}
+@mixin glass() {
+	background-color: rgba(241, 212, 255, 0.2);
+	-webkit-backdrop-filter: blur(100px);
+	backdrop-filter: blur(100px);
+}

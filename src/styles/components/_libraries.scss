@@ -1,0 +1,15 @@
+@use "../var";
+
+#rk_connect_title,
+#rk_chain_modal_title,
+#rk_profile_title {
+	line-height: 115%;
+}
+#rk_profile_title {
+	font-size: 1.5rem !important;
+	margin-block: 0.5rem;
+}
+.chakra-select__icon-wrapper {
+	height: 1.75rem !important;
+	margin-top: -0.3rem;
+}

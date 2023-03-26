@@ -1,0 +1,125 @@
+@use "../var";
+@import "../mixins";
+
+#page-container.landing-page {
+	main {
+		height: 100%;
+		overflow: scroll;
+		// hide scroll bars
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		#landing {
+			padding-top: 20%;
+			padding-bottom: 5%;
+			@include flex-container(column, space-between, center, nowrap, 1, 5rem);
+			height: 100%;
+			text-align: center;
+
+			.cta {
+				@include flex-container(column, center, center, nowrap, 0, 1.5rem);
+				//first child
+				& > *:first-child {
+					transform: scale(2);
+					margin-bottom: 1rem;
+				}
+				.chakra-button {
+					transform: scale(1.5);
+				}
+			}
+		}
+		section {
+			margin: 0 auto;
+			width: min(100%, 60rem);
+			padding-block: 4rem;
+			justify-content: stretch;
+			display: grid;
+			justify-content: stretch;
+			align-items: stretch;
+			grid-template-rows: 1fr 1fr;
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+			grid-template-areas: "content picture" "content picture";
+			&.reverse {
+				grid-template-areas: "picture content" "picture content";
+			}
+			.content {
+				flex: 0.5;
+				grid-area: content;
+				@include flex-container(
+					column,
+					flex-start,
+					flex-start,
+					nowrap,
+					0,
+					1rem
+				);
+			}
+			.img-wrapper {
+				position: relative;
+				border-radius: 0.5rem;
+				overflow: hidden;
+				grid-area: picture;
+			}
+		}
+		#timeline {
+			// background: linear-gradient(
+			// 	to top,
+			// 	var.$foreground 0%,
+
+			// 	var.$background 100%
+			// );
+			@include flex-container(column, center, center, nowrap, 0, 1rem);
+			.content {
+				.timeline {
+					border-left: 2px solid var.$text;
+					padding-left: 1rem;
+					&::before {
+						content: "";
+						height: 1000px;
+						width: 10px;
+						background-color: var.$text;
+					}
+					.timeline-item {
+						border-radius: 0.5rem;
+						margin-block: 1rem;
+						padding: 1rem;
+						@include flex-container(
+							row,
+							flex-start,
+							flex-start,
+							nowrap,
+							0,
+							1rem
+						);
+						&.even {
+							background-color: rgba($color: #000000, $alpha: 0.2);
+						}
+						&.odd {
+							background-color: rgba($color: #ffffff, $alpha: 0.1);
+						}
+						.timeline-item-content {
+							max-width: 45ch;
+							.title {
+								@include flex-container(
+									row,
+									space-between,
+									center,
+									nowrap,
+									1,
+									1
+								);
+							}
+						}
+						.dot {
+							background-color: var.$text;
+							height: 1rem;
+							width: 1rem;
+							border-radius: 50%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

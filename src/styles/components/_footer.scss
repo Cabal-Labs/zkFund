@@ -1,0 +1,8 @@
+@import "../var";
+@import "../mixins";
+#page-footer {
+	padding: 0.5rem 1rem;
+	background-color: var.$foreground;
+	z-index: 5;
+	@include flex-container(row, space-between, center, nowrap);
+}

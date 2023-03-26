@@ -1,0 +1,38 @@
+@use "../var";
+@import "../mixins";
+
+.asset-selection-row-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px 0px;
+  .select-circle {
+    height: 3rem;
+    width: 3rem;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .asset-info-text-container {
+    flex: 1;
+    .asset-info-top-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .asset-info-bottom-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .balance {
+        color: var.$text-secondary;
+      }
+      .balance-in-usd {
+        color: var.$text-secondary;
+      }
+    }
+  }
+}

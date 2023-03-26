@@ -1,0 +1,60 @@
+@use "../var";
+@import "../mixins";
+.charity-details {
+	padding: 1rem;
+	position: relative;
+	min-height: 75vh;
+	flex: 1;
+	width: 100%;
+	.options {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 1rem 0.5rem;
+	}
+	.header {
+		@include flex-container(row, flex-start, flex-start, nowrap, 1, 1rem);
+		> .content {
+			flex: 1;
+		}
+	}
+	> .content {
+		padding: 1rem;
+		.description {
+			padding: 1rem 0;
+		}
+	}
+	.quick-info {
+		@include flex-container(row, flex-start, center, wrap, 1, 1.5rem);
+		width: 100%;
+		.info {
+			@include flex-container(row, flex-start, flex-start, nowrap, 1, 0.5rem);
+			p {
+				flex: 1;
+			}
+		}
+	}
+	&.no-charity {
+		padding: 2rem auto;
+		@include flex-container(column, center, center, nowrap, 1, 1rem);
+		.hint {
+			@include flex-container(row, center, baseline, nowrap, 0, 1ch);
+		}
+	}
+}
+.charity-card {
+	@include flex-container(row, flex-start, center, nowrap, 1, 1rem);
+	padding: 0.5rem;
+	width: 100%;
+	&:hover {
+		background-color: var.$accent1-LO;
+	}
+}
+.render-charities {
+	.odd {
+		background-color: var.$foreground-LO;
+	}
+	.even {
+		background-color: var.$background-LO;
+	}
+}

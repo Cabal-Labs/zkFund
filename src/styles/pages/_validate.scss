@@ -1,0 +1,39 @@
+@use "../var";
+@use "../mixins";
+.validator-portal-page {
+	.title {
+		@include flex-container(column, center, flex-start, nowrap, 1, 0.25rem);
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+	> main {
+		> .container {
+			// all the styles regardless of screen size go here
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			// TODO: temporary background-color until we put glass back
+			background-color: rgba($color: #f1d4ff, $alpha: 0.2);
+			padding: 30px;
+			border-radius: 20px;
+		}
+	}
+}
+@media screen and (max-width: var.$screen_M) {
+	.validator-portal-page {
+		> main {
+			> .container {
+				// all the mobile styles go here
+			}
+		}
+	}
+}
+@media screen and (min-width: var.$screen_M) {
+	.validator-portal-page {
+		> main {
+			> .container {
+				// all the desktop styles go here
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+@use "../var";
+@import "../mixins";
+.validate-request-card-container {
+  // height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var.$button-background;
+  padding: 30px;
+  border-radius: 0.625rem;
+  margin: 10px 0px;
+  .validate-request-charity-info-container {
+    margin-right: 50px;
+    // background-color: red;
+  }
+  .validate-selection-row {
+    display: flex;
+    flex-direction: row;
+    .validate-selection-div {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+}

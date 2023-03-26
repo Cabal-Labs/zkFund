@@ -1,0 +1,41 @@
+@use "../var";
+
+.styled-icon-base {
+	color: var.$text !important;
+
+	&.inline {
+		display: inline;
+	}
+	&.btn {
+		background-color: var.$foreground;
+		@include shadow-3();
+		margin: 0 4px;
+	}
+	&.text {
+		color: var.$text;
+	}
+	&.secondary {
+		color: var.$text-secondary;
+	}
+	&.white {
+		color: var.$text;
+	}
+	&.primary {
+		color: var.$primary;
+	}
+	&.primary-dark {
+		color: var.$primary-dark;
+	}
+
+	&.success {
+		color: var.$success;
+	}
+	&.danger {
+		color: var.$danger;
+	}
+
+	&.inline {
+		display: inline;
+		margin-bottom: -0.3rem;
+	}
+}
